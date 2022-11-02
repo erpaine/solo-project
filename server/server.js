@@ -7,8 +7,18 @@ const port = 3000;
 app.use(cors());
 app.use(express.json());
 app.use(require("./routes/routes"));
+const mongoose = require("mongoose");
 // get driver connection
 //const dbo = require("./db/conn");
+const MONGO_URI = 'mongodb+srv://Emily_Paine:L0j5FrAIwCda9Lha@cluster0.bebdqci.mongodb.net/?retryWrites=true&w=majority';
+
+mongoose.connect(MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    dbName: 'pantry2'
+})
+.then(() => console.log('Connected to MongoDB.'))
+.catch(err => console.log(err));
 
 app.use(express.urlencoded({ extended: true }));
 

@@ -5,7 +5,7 @@ const MONGO_URI = 'mongodb+srv://Emily_Paine:L0j5FrAIwCda9Lha@cluster0.bebdqci.m
 mongoose.connect(MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    dbName: 'Pantry'
+    dbName: 'pantry2'
 })
 .then(() => console.log('Connected to MongoDB.'))
 .catch(err => console.log(err));
@@ -14,7 +14,7 @@ const Schema = mongoose.Schema;
 
 const itemSchema = new Schema({
     name: String,
-    expiration_date: Number,
+    expirationDate: String,
     category: String,
 });
 

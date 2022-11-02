@@ -21,6 +21,8 @@ export default function EntryCreator() {
         e.preventDefault();
 
         const newItem = { ...form };
+        console.log(newItem.expirationDate);
+        
         
         await fetch("http://localhost:3000/route/item", {
             method: "POST",
@@ -54,7 +56,7 @@ export default function EntryCreator() {
                 <div className="form-group">
                     <label htmlFor="expirationDate">Expiration Date</label>
                     <input
-                    type="text"
+                    type="date"
                     className="form-control"
                     id="expirationDate"
                     value={form.expirationDate}
