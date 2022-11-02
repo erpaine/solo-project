@@ -37,10 +37,13 @@ module.exports = {
     devServer: {
         static: {
             publicPath: '/build',
-            directory: Path2D.resolve(__dirname, 'build'),
-            proxy: {
-                '/api': 'http://localhost:3000',
-            }
+            directory: path.resolve(__dirname, 'build'),
+        },
+        proxy: {
+            '/api': 'http://localhost:9000',
         }
-    }
+    },
+    resolve: {
+        extensions: ['.ts', '.js', '.jsx'],
+      }
 }

@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import MainContainer from './containers/MainContainer.jsx';
 
 class App extends Component {
     render() {
         return (
             <div>
                 <h1>Pantry</h1>
-                <Main Container />
+                <MainContainer />
             </div>
         )
     }
