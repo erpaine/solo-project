@@ -37,4 +37,31 @@ pantryController.getAllItems = (req, res, next) => {
 
 };
 
+pantryController.deleteItem = (req, res, next) => {
+    const id = req.params.id;
+    models.Item.findOneAndDelete({ _id: id })
+    .then(next())
+    .catch(err => {
+        return next({
+            log: `pantryController.deleteItem: ERROR: ${err}`,
+            message: { err: `Error occurred in pantryController.deleteItem`}
+        });
+    });
+};
+
+pantryController.updateItem = (req, res, next) => {
+    const id = req.params.id;
+    const filter = { _id: id }
+    const { name, expirationDate, category } = req.body;
+    const update = { name, expirationDate, category }
+    models.Item.findOneAndUpdate(filter, update)
+    .then(next())
+    .catch(err => {
+        return next({
+            log: `pantryController.updateItem: ERROR: ${err}`,
+            message: { err: `Error occurred in pantryController.updateItem`}
+        });
+      });
+}
+
 module.exports = pantryController;

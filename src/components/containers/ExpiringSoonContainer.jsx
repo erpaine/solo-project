@@ -23,7 +23,7 @@ export default function ExpiringSoonContainer() {
         getItems();
       
         return;
-      }, [items.length]);
+      });
 
     async function deleteItem(id) {
         await fetch(`http://localhost:3000/${id}`, {
@@ -33,18 +33,17 @@ export default function ExpiringSoonContainer() {
         const newItems = items.filter((el) => el._id !== id);
         setItems(newItems);
     }
-    const hasDate = items.filter((el)=> el.expirationDate)
+    
     items.sort((a, b) => {
-        console.log('a', Date.parse(a.expirationDate), 'b', Date.parse(b.expirationDate))
         return Date.parse(a.expirationDate) - Date.parse(b.expirationDate)})
-    console.log('first el', hasDate[0])
-    console.log(items);
     const today = Date.now();
+    //console.log(today.toString())
     const expiredDivs = [];
-    const itemDivs = [];
+    const expiringDivs = [];
+    const goodDivs = [];
     for (let i = 0; i < items.length; i++){
         let exp = items[i].expirationDate; 
-        if (!exp || (Date.parse(exp) - today) < 0){
+        if (!exp || (Date.parse(exp) - today) < - 86400000){
             expiredDivs.push(<PantryItem 
                 item={items[i]}
                 deleteItem={() => deleteItem(items[i]._id)}
@@ -52,12 +51,19 @@ export default function ExpiringSoonContainer() {
  
             />)
         }
-        else {
-        itemDivs.push(<PantryItem 
+        else if (Date.parse(exp) - today < 604800000){
+        expiringDivs.push(<PantryItem 
                        item={items[i]}
                        deleteItem={() => deleteItem(items[i]._id)}
                        key={items[i]._id}
-        
+            />)
+        } else {
+            goodDivs.push(
+                <PantryItem 
+                       item={items[i]}
+                       deleteItem={() => deleteItem(items[i]._id)}
+                       key={items[i]._id}
+                       
             />)
         }
     }
@@ -66,7 +72,9 @@ export default function ExpiringSoonContainer() {
             <h3>Expired</h3>
             {expiredDivs}
             <h3>Expiring Soon</h3>
-            {itemDivs}
+            {expiringDivs}
+            <h3>Other Pantry Items</h3>
+            {goodDivs}
         </div>
     )
 }

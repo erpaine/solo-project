@@ -4,7 +4,14 @@ export default function PantryItem(props) {
 
     return(
         <div>
-            <p>Item: {props.item.name}, Expiration Date: {props.item.expirationDate}, Category: {props.item.category}</p>
+            <p>{props.item.name} Expires: {props.item.expirationDate}, Category: {props.item.category}</p>
+            <button className="btn btn-link"
+       onClick={() => {
+         props.deleteItem(props.item._id);
+       }}
+        >
+       Delete
+        </button>
         </div>
     )
 }

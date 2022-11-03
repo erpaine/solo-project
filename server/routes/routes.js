@@ -20,6 +20,12 @@ router.get('/', pantryController.getAllItems,
     (req, res) => res.status(200).json(res.locals.allItems)  
 );
 
+router.delete('/:id', pantryController.deleteItem,
+    (req, res) => res.status(200).json());
 
+
+router.put('/:id', pantryController.updateItem,
+    (req, res) => res.status(200).json(res.locals.item)
+);
 
 module.exports = router;

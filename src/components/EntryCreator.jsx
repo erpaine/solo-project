@@ -22,7 +22,7 @@ export default function EntryCreator() {
 
         const newItem = { ...form };
         console.log(newItem.expirationDate);
-        
+
         
         await fetch("http://localhost:3000/route/item", {
             method: "POST",
@@ -44,7 +44,7 @@ export default function EntryCreator() {
             <h2>Enter Pantry Item</h2>
             <form onSubmit={onSubmit}>
                 <div className="form-group">
-                    <label htmlFor="name">Name</label>
+                    <label htmlFor="name">Item</label>
                     <input
                     type="text"
                     className="form-control"
