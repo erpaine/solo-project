@@ -7,7 +7,7 @@ import '../stylesheets/styles.scss';
 class App extends Component {
     render() {
         return (
-            <div>
+            <div className="main">
                 <h1>Pantry</h1>
                 <MainContainer />
             </div>

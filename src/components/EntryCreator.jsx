@@ -40,21 +40,23 @@ export default function EntryCreator() {
     }
 
     return(
-        <div>
+        <div className='entry-creator'>
             <h2>Enter Pantry Item</h2>
-            <form onSubmit={onSubmit}>
+            <div className="inputs">
+            <form className="form-conatiner"onSubmit={onSubmit}>
                 <div className="form-group">
-                    <label htmlFor="name">Item</label>
+                    <label htmlFor="name">Item </label>
                     <input
                     type="text"
                     className="form-control"
                     id="name"
+                    placeholder='Item'
                     value={form.name}
                     onChange={(e) => updateForm({ name: e.target.value })}
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="expirationDate">Expiration Date</label>
+                    <label htmlFor="expirationDate">Expiration Date </label>
                     <input
                     type="date"
                     className="form-control"
@@ -64,11 +66,12 @@ export default function EntryCreator() {
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="category">Category</label>
+                    <label htmlFor="category">Category </label>
                     <input
                     type="text"
                     className="form-control"
                     id="category"
+                    placeholder='Category'
                     value={form.category}
                     onChange={(e) => updateForm({ category: e.target.value })}
                     />
@@ -77,10 +80,11 @@ export default function EntryCreator() {
                     <input
                     type="submit"
                     value="Create pantry item"
-                    className="btn btn-primary"
+                    className="button"
                     />
                 </div>
             </form>
+            </div>
         </div>
     )
 }

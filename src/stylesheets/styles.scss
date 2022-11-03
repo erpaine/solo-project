@@ -1,0 +1,78 @@
+$primary-color: rgb(241, 230, 230);
+$font-stack: Verdana, sans-serif;
+h1 {
+    text-align: center;
+    background-color: black;
+    padding: 30px;
+    color:rgb(241, 230, 230);
+    font-family: Verdana, sans-serif;
+    width: 100%;
+}
+
+.main {
+    background-color: rgb(189, 172, 152, .8);
+    padding: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+body {
+    font-family: Verdana, sans-serif;
+    background-image: url('../images/pantry.jpg');
+    background-size: cover;
+    margin: 10%
+
+
+       
+}
+.entry-creator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form-group {
+    text-align: end;
+}
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.entry-creator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.expired {
+    display: flex;
+    flex-direction: row;
+}
+.expiring {
+    display: flex;
+    flex-direction: row;
+}
+.other {
+    display: flex;
+    flex-direction: row;
+}
+.display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.itemBox {
+    padding: .5em;
+    margin: .5em;
+    font-size: .8em;
+    border: 1px solid #e4e4e4;
+    box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2);
+    background-color: bisque;
+    max-width: 150px;
+    border-radius: 8%;
+  }
+.button {
+    
+}

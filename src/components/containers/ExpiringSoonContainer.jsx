@@ -68,13 +68,19 @@ export default function ExpiringSoonContainer() {
         }
     }
     return (
-        <div>
-            <h3>Expired</h3>
-            {expiredDivs}
+        <div className="display">
+                <h3>Expired</h3>
+            <div className="expired">
+                {expiredDivs}
+            </div>
             <h3>Expiring Soon</h3>
+            <div className="expiring">
             {expiringDivs}
+            </div>
             <h3>Other Pantry Items</h3>
+            <div className="other">
             {goodDivs}
+            </div>
         </div>
     )
 }
